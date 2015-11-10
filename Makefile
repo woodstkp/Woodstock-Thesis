@@ -17,6 +17,8 @@ Outside = ke5c.RData
 
 ## Content
 
+Sources += $(wildcard *.R)
+
 ke5c.Rout:
 	touch $@
 
