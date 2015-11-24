@@ -1,8 +1,12 @@
-load("~/R/ke5c.RData")
 library(dplyr)
 library(ggplot2)
 
+# setwd("~/R") # May be wrong, please don't uncomment it on the repo
+
+load("ke5c.RData")
 coupleAnswers <- Answers
+load("ke5x.RData") ### Fix or find this
+individualAnswers <- Answers
 
 firstMarriage <- (coupleAnswers 
 	%>% filter(
@@ -23,7 +27,7 @@ newMarriage.HIV <- (newMarriage
 )
 
 
-individualHIV <- (Answers
+individualHIV <- (individualAnswers
 		  %>%filter(
 		    (is.na(HIV.result.w)==FALSE)
 		    )
