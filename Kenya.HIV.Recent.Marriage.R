@@ -1,12 +1,15 @@
 library(dplyr)
 library(ggplot2)
 
-# setwd("~/R") # May be wrong, please don't uncomment it on the repo
+#setwd("~/R") # May be wrong, please don't uncomment it on the repo
 
 load("ke5c.RData")
 coupleAnswers <- Answers
-load("ke5x.RData") ### Fix or find this
+coupleAnswers$HIV.result.f <- coupleAnswers$HIV.result.w
+
+load("ke5.RData")
 individualAnswers <- Answers
+
 
 firstMarriage <- (coupleAnswers 
 	%>% filter(
@@ -22,14 +25,14 @@ newMarriage <- (firstMarriage
 
 newMarriage.HIV <- (newMarriage
 		    %>%filter(
-		      (is.na(HIV.result.w)==FALSE) & (is.na(HIV.result.m)==FALSE)	      
+		      (is.na(HIV.result.f)==FALSE) & (is.na(HIV.result.m)==FALSE)	      
 		      )
 )
 
 
 individualHIV <- (individualAnswers
 		  %>%filter(
-		    (is.na(HIV.result.w)==FALSE)
+		    (is.na(HIV.result.f)==FALSE)
 		    )
 )
 
@@ -39,9 +42,9 @@ individualHIV <- (individualAnswers
 print(names(individualHIV))
 
 print(
-	ggplot(individualHIV, aes(x = current.age.f, fill = HIV.result.w))
+	ggplot(individualHIV, aes(x = Age, fill = HIV.result.f))
 	+ geom_bar(position = "fill",binwidth=1)
 )
 
-ggplot(newMarriage.HIV,aes(x = current.age.f,fill = HIV.result.w)) + 
+ggplot(newMarriage.HIV,aes(x = current.age.f,fill = HIV.result.f)) + 
   geom_bar(position = "fill", binwidth=1)

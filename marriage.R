@@ -1,5 +1,7 @@
 library(dplyr)
+setwd("~/R")
 
+load("ke5c.RData")
 coupleAnswers <- Answers
 
 
@@ -15,15 +17,22 @@ with(firstMarriage, {
 	table(Years.since.first.marriage.m, Years.since.first.marriage.f)
 })
 
-quit()
+##sum of reported years since marriage for both partners is less than one
+newMarriage <- (firstMarriage
+  %>%filter(
+    (Years.since.first.marriage.f+Years.since.first.marriage.m <=1)
+  )
+)
+
+#quit()
 
 library(ggplot2)
 print(
-	ggplot(Answers, aes(x=Years.since.first.marriage.f))
+	ggplot(coupleAnswers, aes(x=Years.since.first.marriage.f))
 	+ geom_histogram()
 )
 
 print(
-	ggplot(Answers, aes(x=Years.since.first.marriage.m))
+	ggplot(coupleAnswers, aes(x=Years.since.first.marriage.m))
 	+ geom_histogram()
 )
