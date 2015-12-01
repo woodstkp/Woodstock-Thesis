@@ -1,6 +1,6 @@
 library(dplyr)
 
-setwd("~/R") # May be wrong, please don't uncomment it on the repo
+#setwd("~/R") # May be wrong, please don't uncomment it on the repo
 
 load("merge_couple.RData")
 #Answers.couple$HIV.result.w <- Answers.couple$HIV.result.f
