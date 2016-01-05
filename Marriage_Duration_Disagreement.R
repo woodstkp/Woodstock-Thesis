@@ -1,12 +1,12 @@
 library(dplyr)
 
-setwd("~/R") # May be wrong, please don't uncomment it on the repo
-load("merge_couple.RData")
+setwd("~/Woodstock_thesis") 
+load("~/Dropbox/Woodstock_thesis/merge_couple.RData")
 
 firstMarriage <- (Answers.couple 
-                  %>% filter(
-                    (Number.unions.f=="Once") & (Number.unions.m == "Once")
-                  )
+	%>% filter(
+		(Number.unions.f=="Once") & (Number.unions.m == "Once")
+	)
 )
 
 #woman's reported years since marriage - man's report

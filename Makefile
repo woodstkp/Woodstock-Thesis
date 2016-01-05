@@ -2,7 +2,7 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: marriage.Rout 
+target pngtarget pdftarget vtarget acrtarget: Marriage_Duration_Disagreement.Rout 
 
 ##################################################################
 
@@ -32,6 +32,8 @@ Kenya.HIV.Recent.Marriage.Rout: ke5c.RData ke5x.RData Kenya.HIV.Recent.Marriage.
 
 marriage.Rout: ke5c.RData marriage.R
 	$(run-R)
+
+Marriage_Duration_Disagreement.Rout: ke5c.RData Marriage_Duration_Disagreement.R
 
 ######################################################################
 
