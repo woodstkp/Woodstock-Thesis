@@ -1,7 +1,6 @@
 library(dplyr)
-setwd("~/R")
-
-load("ke5c.RData")
+setwd("~/Dropbox/Woodstock_thesis")
+load("~/Dropbox/Woodstock_thesis/ke5c.RData")
 coupleAnswers <- Answers
 
 

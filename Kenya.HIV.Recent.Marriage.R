@@ -1,7 +1,7 @@
 library(dplyr)
 library(ggplot2)
 
-#setwd("~/R") # May be wrong, please don't uncomment it on the repo
+setwd("~/Dropbox/Woodstock_thesis")
 
 load("ke5c.RData")
 coupleAnswers <- Answers

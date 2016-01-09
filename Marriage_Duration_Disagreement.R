@@ -1,7 +1,7 @@
 library(dplyr)
 
-setwd("~/Woodstock_thesis") 
-load("~/Dropbox/Woodstock_thesis/merge_couple.RData")
+setwd("~/Dropbox/Woodstock_thesis")
+load("merge_couple.RData")
 
 firstMarriage <- (Answers.couple 
 	%>% filter(

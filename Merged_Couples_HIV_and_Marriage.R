@@ -1,6 +1,6 @@
 library(dplyr)
 
-setwd("~/R") # May be wrong, please don't uncomment it on the repo
+setwd("~/Dropbox/Woodstock_thesis")
 
 load("merge_couple.RData")
 #Answers.couple$HIV.result.w <- Answers.couple$HIV.result.f
@@ -35,15 +35,15 @@ newMarriage.HIV <- (newMarriage
 )
 
 library(ggplot2)
-#print(
-  #ggplot(Answers.couple, aes(x=Years.since.first.marriage.f))
-  #+ geom_histogram(binwidth=1)
-#)
+print(
+  ggplot(Answers.couple, aes(x=Years.since.first.marriage.f))
+  + geom_histogram(binwidth=1)
+)
 
-#print(
-  #ggplot(Answers.couple, aes(x=Years.since.first.marriage.m))
-  #+ geom_histogram(binwidth=1)
-#)
+print(
+  ggplot(Answers.couple, aes(x=Years.since.first.marriage.m))
+  + geom_histogram(binwidth=1)
+)
 
 print(
   ggplot(newMarriage.HIV, aes(x = current.age.f, fill = HIV.result.w))
