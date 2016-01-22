@@ -9,12 +9,17 @@ load("merge.RData")
 Answers.individual <-Answers
 rm(Answers)
 
+## removes indiviudals without HIV test result
 individual.HIV <- (Answers.individual
   %>% filter(
     (is.na(HIV.result.f)==FALSE) & (HIV.result.f!= "Indeterminant")
   )
 )
 
+## groups individuals with HIV1 and HIV2 together as HIV-positive
+individual.HIV$HIV.result.f <-ifelse(individual.HIV$HIV.result.f== "HIV negative", "HIV negative","HIV positive")
+
+## includes ony those married once
 firstMarriage <- (Answers.couple 
   %>% filter(
     (Number.unions.f=="Once") & (Number.unions.m == "Once")
@@ -27,12 +32,15 @@ newMarriage <- (firstMarriage
     (Years.since.first.marriage.f + Years.since.first.marriage.m <= 1)
   )
 )
+rm(firstMarriage)
 
+## removes couples where either partner has no HIV-test result
 newMarriage.HIV <- (newMarriage
   %>%filter(
     (is.na(HIV.result.w)==FALSE) & (is.na(HIV.result.m)==FALSE)	      
   )
 )
+rm(newMarriage)
 
 library(ggplot2)
 print(
