@@ -61,4 +61,10 @@ print(
 print(
   ggplot(individual.HIV, aes(x=Age,fill=HIV.result.f))
   +geom_bar(binwidth=1)
-)
+) 
+  
+individual.HIV$HIV.result.f <-ifelse(individual.HIV$HIV.result.f== "HIV negative", 0,1)
+newMarriage.HIV$HIV.result.w <-ifelse(newMarriage.HIV$HIV.result.w== "HIV negative", 0,1)
+
+## binomial test looking at the proportion of women with HIV in recent marriage vs the general population
+binom.test(sum(newMarriage.HIV$HIV.result.w),length(newMarriage.HIV$HIV.result.w),mean(individual.HIV$HIV.result.f),"t")
