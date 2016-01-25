@@ -3,7 +3,10 @@ library(dplyr)
 setwd("~/Dropbox/Woodstock_thesis")
 
 load("merge_couple.RData")
-#Answers.couple$HIV.result.w <- Answers.couple$HIV.result.f
+
+## HIV result variable renamed
+Answers.couple$HIV.result.f <- Answers.couple$HIV.result.w
+Answers.couple$HIV.result.w <- NULL 
 
 load("merge.RData")
 Answers.individual <-Answers
@@ -37,14 +40,14 @@ rm(firstMarriage)
 ## removes couples where woman has no HIV-test result
 newMarriage.HIV <- (newMarriage
   %>%filter(
-    (is.na(HIV.result.w)==FALSE) & (is.na(HIV.result.m)==FALSE)        
+    (is.na(HIV.result.f)==FALSE)         
   )
 )
 rm(newMarriage)
 
 library(ggplot2)
 print(
-  ggplot(newMarriage.HIV, aes(x = current.age.f, fill = HIV.result.w))
+  ggplot(newMarriage.HIV, aes(x = current.age.f, fill = HIV.result.f))
   + geom_bar(binwidth=1)
 )
 
@@ -54,7 +57,7 @@ print(
 ) 
 
 individual.HIV$HIV.result.f <-ifelse(individual.HIV$HIV.result.f== "HIV negative", 0,1)
-newMarriage.HIV$HIV.result.w <-ifelse(newMarriage.HIV$HIV.result.w== "HIV negative", 0,1)
+newMarriage.HIV$HIV.result.f <-ifelse(newMarriage.HIV$HIV.result.f== "HIV negative", 0,1)
 
 ## binomial test looking at the proportion of women with HIV in recent marriage vs the general population
-binom.test(sum(newMarriage.HIV$HIV.result.w),length(newMarriage.HIV$HIV.result.w),mean(individual.HIV$HIV.result.f),"t")
+binom.test(sum(newMarriage.HIV$HIV.result.f),length(newMarriage.HIV$HIV.result.f),mean(individual.HIV$HIV.result.f),"t")
