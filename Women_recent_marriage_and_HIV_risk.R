@@ -23,27 +23,13 @@ individual.HIV <- (Answers.individual
 individual.HIV$HIV.result.f <-ifelse(individual.HIV$HIV.result.f== "HIV negative", "HIV negative","HIV positive")
 
 ## includes couples with women married only once
-firstMarriage <- (Answers.couple 
+newMarriage.HIV <- (Answers.couple 
+  %>% filter(Number.unions.f=="Once")
   %>% filter(
-    (Number.unions.f=="Once") 
+    Years.since.first.marriage.f + Years.since.first.marriage.m <= 1
   )
+  %>% filter(is.na(HIV.result.f)==FALSE  & (HIV.result.f!= "Indeterminant"))
 )
-
-##sum of reported years since marriage for both partners is less than one
-newMarriage <- (firstMarriage 
-  %>% filter(
-    (Years.since.first.marriage.f + Years.since.first.marriage.m <= 1)
-  )
-)
-rm(firstMarriage)
-
-## removes couples where woman has no HIV-test result
-newMarriage.HIV <- (newMarriage
-  %>%filter(
-    (is.na(HIV.result.f)==FALSE)         
-  )
-)
-rm(newMarriage)
 
 library(ggplot2)
 print(
