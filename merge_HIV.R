@@ -1,7 +1,5 @@
 library(dplyr)
-
 setwd("~/Dropbox/Woodstock_thesis")
-
 load("merge.RData")
 
 
@@ -14,6 +12,17 @@ Answers <- (Answers
     (is.na(HIV.result.f)==FALSE) & (HIV.result.f!= "Indeterminant")
     ##& (Result.HIV =="Blood taken")
   )
+)
+
+## creates variable for HIV-positive individuals
+Answers$hiv_pos <- ifelse(Answers$HIV.result.f == "HIV positive",TRUE,FALSE)
+
+
+## Removes indivudals with no marital status information available
+Answers <- (Answers
+  %>% filter(
+    (is.na(Curr.form.never.marr)==FALSE)
+  )          
 )
 
 ## Changes order of factors in HIV status variable (for later plotting)
@@ -34,8 +43,8 @@ Answers$Curr.form.never.marr[Answers$Curr.form.never.marr == "Currently in union
 Answers$Curr.form.never.marr[Answers$Curr.form.never.marr == "Never married"] <- "never"
 Answers$Curr.form.never.marr[Answers$Curr.form.never.marr == "Never in union"] <- "never"
 
+Answers$marital_status <- factor(Answers$Curr.form.never.marr,levels=c("current","former","never"))
 
-Answers$marital_status <- as.factor(Answers$Curr.form.never.marr)
 Answers$Curr.form.never.marr <- NULL
 Answers$Current.marital.status <- NULL
 
@@ -43,4 +52,3 @@ Answers$Current.marital.status <- NULL
 Answers$Ever.been.married.all <-ifelse(Answers$Ever.been.married == "No", "No","Yes")
 Answers$Ever.been.married.all[is.na(Answers$Ever.been.married.all) == TRUE] <- "Yes"
 Answers$Ever.been.married.all <- as.factor(Answers$Ever.been.married.all)
-#Answers$Ever.been.married.all[is.na(Answers$marital_status) == TRUE] <- NA
