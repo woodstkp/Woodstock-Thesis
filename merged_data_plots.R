@@ -15,7 +15,7 @@ print(
 print(
   ggplot(Answers) +aes(x=Age, fill=HIV.result.f)+geom_bar(position="fill",binwidth=1)
   + scale_fill_brewer(palette="BrBG") +xlab("Current age (Female)") + ylab("Proportions")
-  + facet_grid(~Country.code.and.phase)
+  + facet_wrap(~Country.code.and.phase)
 )
 
 
@@ -23,7 +23,7 @@ print(
 print(
   ggplot(Answers)+aes(x=Age, fill=HIV.result.f)
   +geom_bar(position="fill",binwidth=1) + scale_fill_brewer(palette="BrBG")
-  +facet_grid(~Ever.been.married.all)
+  +facet_wrap(~Ever.been.married.all)
 )
 
 print(
@@ -36,7 +36,7 @@ print(
 print(
   ggplot(Answers)+aes(x=Age, fill=HIV.result.f)
   +geom_bar(position="fill",binwidth=1) + scale_fill_brewer(palette="BrBG")
-  +facet_grid(~marital_status)
+  +facet_wrap(~marital_status)
 )
 
 print(
