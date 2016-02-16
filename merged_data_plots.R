@@ -8,7 +8,7 @@ load("merge_HIV.RData")
 ## Proportion of HIV positive individuals 
 print(
   ggplot(Answers)+aes(x=Age, fill=HIV.result.f)
-  +geom_bar(position="fill",binwidth=1) + scale_fill_brewer(palette="BrBG")
+  +geom_bar(position="fill",binwidth=5) + scale_fill_brewer(palette="BrBG")
 )
 
 ## Proportion by country
@@ -58,5 +58,4 @@ print(
   +geom_bar(position="fill",binwidth=1) + scale_fill_brewer(palette="BrBG")
   +facet_grid(Country.code.and.phase~Ever.been.married.all)
 )
-
 
