@@ -11,5 +11,6 @@ gitroot = ../
 -include $(gitroot)/local.mk
 
 export ms = $(gitroot)/makestuff
+-include $(ms)/os.mk
 
 READONLY = chmod a-w $@
