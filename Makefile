@@ -2,7 +2,7 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: Risk_factor_spline_plots.Rout 
+target pngtarget pdftarget vtarget acrtarget: Risk_factor_analyses.Rout 
 
 ##################################################################
 
