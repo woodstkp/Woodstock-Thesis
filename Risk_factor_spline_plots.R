@@ -25,7 +25,7 @@ hivXnsp <- ggplot(data = Answers,
 print(hivXafs
 	+ geom_smooth(
 		method="glm",method.args=list("binomial"),
-		formula=y~infs(x,4),na.rm=FALSE
+		formula=y~ns(x,4),na.rm=FALSE
 	)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Age at First Sex") 
 )

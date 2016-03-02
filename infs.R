@@ -6,6 +6,5 @@ infs <- function(x, df){
 		mean(c(xmin, min(other)))
 		, quantile(other, (1:(df-2))/(df-1))
 	)
-	print(infknots)
 	return(ns(x, knots=infknots))
 }
