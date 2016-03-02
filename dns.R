@@ -10,7 +10,6 @@ dns <- function(x, df){
 	w <- (1:(df-1))/df
 	dknots <- (w*splits[-1] + (1-w)*splits[-df])
 
-	print(dknots)
 	## Make a spline
 	return(ns(x, knots=dknots))
 }
