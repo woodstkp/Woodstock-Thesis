@@ -56,5 +56,5 @@ Answers$Ever.been.married.all <- as.factor(Answers$Ever.been.married.all)
 ## Removing individuls with no response for age at first sex or number of partners 
 ## Filter these numbers a little more carefully
 Answers <-(Answers
-	%>% filter((Age.first.sex <=50) & (nb.sex.partner <40))
+	%>% filter((Age.first.sex <=50) & (nb.sex.partner <95))
 )
