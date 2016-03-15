@@ -1,6 +1,8 @@
 # method.args = list(family = "binomial")
 
 library(ggplot2)
+theme_set(theme_bw())
+
 library(splines)
 setwd("~/Dropbox/Woodstock_thesis")
 load("merge_HIV.RData")
