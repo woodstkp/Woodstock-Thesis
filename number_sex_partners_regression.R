@@ -25,6 +25,9 @@ anova(fMod, fModNoAge)
 
 ## KW should make a similar sub-model for marital_status
 
+fMod_no_MS <- update(fMod, . ~ . - marital_status)
+anova(fMod,fMod_no_MS)
+
 ## Moving forward (probably in a separate file):
 
 #### We want to think about interactions ... in particular the interaction between age and status, because we know we're worried about it.
