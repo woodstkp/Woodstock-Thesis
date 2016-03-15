@@ -21,68 +21,60 @@ aes(x=Age, y=as.numeric(hiv_pos), colour=marital_status)
 )
 
 ## HIV risk by gender
-print(gender_plot + scale_colour_brewer(palette="Set1")
+HIV_risk_by_gender <- (gender_plot + scale_colour_brewer(palette="Set1")
 	+ geom_smooth(method="glm",method.args=list("binomial"), formula=y~ns(x, 4),na.rm=FALSE) 
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Gender")
 )
+print(HIV_risk_by_gender)
 
-#ggsave(file="HIV_risk_by_gender.png")
 
 ## Proportion by country
-print(gender_plot
+HIV_proportion_by_country <- (gender_plot
 	+ geom_smooth(method="glm",method.args=list("binomial"), formula=y~ns(x, 4),na.rm=FALSE) 
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Gender and Country")
 	+facet_wrap(~Country.code.and.phase)
 )
-
-#ggsave("HIV_proportion_by_country.png")
-
+print(HIV_proportion_by_country)
 
 ## Proportion by ever married
-print(ever_married_plot
+HIV_probability_by_marital_status <- (ever_married_plot
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~ns(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Marital Status")				 
 )
+print(HIV_probability_by_marital_status)
 
-#ggsave("HIV_probability_by_marital_status.png")
-
-print(ever_married_plot
+HIV_prob_marital_status_and_gender <- (ever_married_plot
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~ns(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Marital Status")	
 	+facet_wrap(~gender)
 )
-
-#ggsave("HIV_prob_marital_status_and_gender.png")
+print(HIV_prob_marital_status_and_gender)
 
 ## Proportion by current marital status
-print(marital_status_plot
+HIV_prob_current_marital_status <- (marital_status_plot
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~ns(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Current Marital Status") 
 )
+print(HIV_prob_current_marital_status)
 
-#ggsave("HIV_prob_current_marital_status.png")
-
-print(marital_status_plot
+HIV_prob_current_marital_status_and_gender <- (marital_status_plot
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~ns(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Current Marital Status") 
 	+facet_wrap(~gender)
 )
-
-#ggsave("HIV_prob_current_marital_status_and_gender.png")
+print(HIV_prob_current_marital_status_and_gender)
 
 ## Proportion by marriage and country
-print(marital_status_plot
+HIV_prob_current_marital_status_and_country <- (marital_status_plot
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~ns(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Current Marital Status") 
 	+facet_wrap(~Country.code.and.phase)
 )
+print(HIV_prob_current_marital_status_and_country)
 
-#ggsave("HIV_prob_current_marital_status_and_country.png")
-
-print(ever_married_plot
+HIV_prob_marital_status_and_country <- (ever_married_plot
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~ns(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Marital Status") 
 	+facet_wrap(~Country.code.and.phase)
 )
-
-#ggsave("HIV_prob_marital_status_and_country.png")
+print(HIV_prob_marital_status_and_country)
