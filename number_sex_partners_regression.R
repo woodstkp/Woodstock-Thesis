@@ -17,5 +17,11 @@ HIV_nsp2 <- glmer(formula = hiv_pos ~ log(nb.sex.partner)+ Age
   family = binomial(logit), data = fAnswers
 )
 
+HIV_nsp3 <- glmer(formula = hiv_pos ~ log(nb.sex.partner)+ log(nb.sex.partner):Age 
+  + (1 | Country.code.and.phase), 
+  family = binomial(logit), data = fAnswers
+)
+
 anova(HIV_nsp,HIV_nsp2)
+anova(HIV_nsp,HIV_nsp3)
 summary(HIV_nsp)
