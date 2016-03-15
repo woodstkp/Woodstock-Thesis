@@ -27,12 +27,6 @@ hivXnsp <- ggplot(data = Answers,
 
 print(hivXnsp
   + geom_smooth(method="glm",method.args=list("binomial"), formula=y~infs(x, 4),na.rm=FALSE) 
-  +ylab("Proportion HIV+") +ggtitle("HIV Probability by Number of Sexual Partners")
-    
+  +ylab("Proportion HIV+") +ggtitle("HIV Probability by Number of Sexual Partners")    
 )
 
-print(hivXnsp
-  + geom_smooth(method="glm",method.args=list("binomial"), formula=y~dns(x, 4),na.rm=FALSE) 
-  +ylab("Proportion HIV+") +ggtitle("HIV Probability by Number of Sexual Partners")
-      
-)
