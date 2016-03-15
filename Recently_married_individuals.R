@@ -11,8 +11,11 @@ Answers.couple$HIV.result.w <- NULL
 ## groups individuals with HIV1 and HIV2 together as HIV-positive
 Answers.couple$HIV.result.f <-ifelse(Answers.couple$HIV.result.f== "HIV negative", "HIV negative","HIV positive")
 
+## Creating logical HIV variable
+Answers.couple$HIV_pos <- ifelse(Answers.couple$HIV.result.f == "HIV negative", FALSE,TRUE)
+
 ## Women recently married for the first time with available HIV status
-Anss_new_marr_f <- (Answers.couple
+Ans_new_marr_f <- (Answers.couple
     %>% filter(Number.unions.f=="Once")
       %>% filter(Years.since.first.marriage.f + Years.since.first.marriage.m <= 1)
         %>% filter(is.na(HIV.result.f)==FALSE  & (HIV.result.f!= "Indeterminant"))
@@ -26,3 +29,6 @@ Ans_new_marr_m <- (Answers.couple
   )
 
 rm(Answers.couple)
+
+Ans_new_marr_f$recent_marr <- TRUE
+Ans_new_marr_m$recent_marr <- TRUE
