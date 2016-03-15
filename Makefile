@@ -2,7 +2,7 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: Risk_factor_analyses.Rout 
+target pngtarget pdftarget vtarget acrtarget: number_sex_partners_regression.Rout 
 
 ##################################################################
 
@@ -39,6 +39,8 @@ merged_data_plots.Rout:
 merged_data_spline_plots.Rout: merged_data_spline_plots.R
 Risk_factor_spline_plots.Rout: Risk_factor_spline_plots.R
 Risk_factor_analyses.Rout: Risk_factor_analyses.R
+
+number_sex_partners_regression.Rout: number_sex_partners_regression.R
 
 sptest.Rout: ~/Dropbox/Woodstock_thesis/Risk_factor_analyses.RData sptest.R
 
