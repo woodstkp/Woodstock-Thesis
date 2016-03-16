@@ -20,7 +20,7 @@ hivXafs <- ggplot(data = Answers,
 )
 
 hivXnsp <- ggplot(data = Answers,
-	aes(x=log(nb.sex.partner), y=as.numeric(hiv_pos), colour=gender)
+	aes(x=nb.sex.partner, y=as.numeric(hiv_pos), colour=gender)
 )
 
 ## Plotting graphs
@@ -33,7 +33,8 @@ HIV_and_age_of_sexual_debut <- (hivXafs
 )
 print(HIV_and_age_of_sexual_debut)
 
-HIV_and_number_sex_partners <- (hivXnsp
+HIV_and_number_sex_partners <- (hivXnsp 
+  +scale_x_log10(breaks = c(1,2,3,4,5,10,20,30,40,50))
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~infs(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Number of Sexual Partners") 
 )
