@@ -11,7 +11,7 @@ source("infs.R")
 ## Removing individuls with no response for age at first sex or number of partners 
 ## Filter these numbers a little more carefully
 Answers <-(Answers
-	%>%filter((Age.first.sex <=50) & (nb.sex.partner <40))
+	%>%filter((Age.first.sex <=50) & (nb.sex.partner <90))
 )
 
 ## Bases for plots 
@@ -34,7 +34,7 @@ HIV_and_age_of_sexual_debut <- (hivXafs
 print(HIV_and_age_of_sexual_debut)
 
 HIV_and_number_sex_partners <- (hivXnsp 
-  +scale_x_log10(breaks = c(1,2,3,4,5,10,20,30,40,50))
+  +scale_x_log10(breaks = c(1,2,5,10,20,50,100))
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~infs(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Number of Sexual Partners") 
 )
