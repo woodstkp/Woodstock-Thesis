@@ -1,10 +1,12 @@
 library(ggplot2)
+theme_set(theme_bw())
+
 library(splines)
 library(dplyr)
 
-source("infs.R")
 setwd("~/Dropbox/Woodstock_thesis")
 load("merge_HIV.RData")
+source("infs.R")
 
 ## Removing individuls with no response for age at first sex or number of partners 
 ## Filter these numbers a little more carefully
@@ -22,18 +24,20 @@ hivXnsp <- ggplot(data = Answers,
 )
 
 ## Plotting graphs
-print(hivXafs
+HIV_and_age_of_sexual_debut <- (hivXafs
 	+ geom_smooth(
-		method="glm",method.args=list("binomial"),
-		formula=y~ns(x,4),na.rm=FALSE
+		  method="glm",method.args=list("binomial"),
+		  formula=y~ns(x,4),na.rm=FALSE
 	)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Age at First Sex") 
 )
+print(HIV_and_age_of_sexual_debut)
 
-print(hivXnsp
+HIV_and_number_sex_partners <- (hivXnsp
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~infs(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Number of Sexual Partners") 
 )
+print(HIV_and_number_sex_partners)
 
 ## Frequency of responses
 print(
