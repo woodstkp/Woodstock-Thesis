@@ -2,7 +2,6 @@ library(ggplot2)
 library(splines)
 setwd("~/Dropbox/Woodstock_thesis")
 
-
 load("merged_data_spline_plots.RData")
 
 ggsave(file="HIV_risk_by_gender.png",plot=HIV_risk_by_gender)
