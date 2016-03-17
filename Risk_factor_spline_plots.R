@@ -51,3 +51,8 @@ print(
 	ggplot(Answers,aes(x=nb.sex.partner))
 	+geom_histogram(binwidth=1) + ggtitle("Number of sexual partners")
 )
+
+print(
+  ggplot(Answers,aes(x=log(nb.sex.partner)))
+  +geom_histogram(binwidth=0.4) + ggtitle("Number of sexual partners")
+)
