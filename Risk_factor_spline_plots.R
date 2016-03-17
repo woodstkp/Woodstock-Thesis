@@ -6,6 +6,7 @@ library(dplyr)
 
 setwd("~/Dropbox/Woodstock_thesis")
 load("merge_HIV.RData")
+load("Country_recode.RData")
 source("infs.R")
 
 ## Removing individuls with no response for age at first sex or number of partners 

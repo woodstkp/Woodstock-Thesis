@@ -6,7 +6,7 @@ theme_set(theme_bw())
 library(splines)
 setwd("~/Dropbox/Woodstock_thesis")
 load("merge_HIV.RData")
-
+load("Country_recode.RData")
 
 ever_married_plot <- ggplot(data = Answers,
 	aes(x=Age, y=as.numeric(hiv_pos), colour=Ever.been.married.all)
