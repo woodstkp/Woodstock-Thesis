@@ -47,12 +47,13 @@ print(
 	+ geom_histogram(binwidth=1) +ggtitle("Age at First Sex")
 )
 
-print(
-	ggplot(Answers,aes(x=nb.sex.partner))
+nsp_histogram <- (ggplot(Answers,aes(x=nb.sex.partner))
 	+geom_histogram(binwidth=1) + ggtitle("Number of sexual partners")
 )
+print(nsp_histogram)
 
-print(
-  ggplot(Answers,aes(x=log(nb.sex.partner)))
-  +geom_histogram(binwidth=0.4) + ggtitle("Number of sexual partners")
+nsp_log_histogram <- (ggplot(Answers,aes(x=nb.sex.partner))
+  + scale_x_log10(breaks = c(1,2,5,10,20,50,100))
+  + geom_histogram(binwidth=0.2) + ggtitle("Number of sexual partners")
 )
+print(nsp_log_histogram)

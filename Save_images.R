@@ -18,3 +18,7 @@ ggsave("HIV_prob_marital_status_and_country.png",plot=HIV_prob_marital_status_an
 load("Risk_factor_spline_plots.RData")
 ggsave("HIV_and_age_of_sexual_debut.png",plot=HIV_and_age_of_sexual_debut)
 ggsave("HIV_and_number_sex_partners.png",plot=HIV_and_number_sex_partners)
+ggsave("nsp_histogram.png",plot=nsp_histogram)
+ggsave("nsp_log_histogram.png",plot=nsp_log_histogram)
+
+load("Coefficients_of_regression.RData")
