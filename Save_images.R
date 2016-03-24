@@ -22,3 +22,4 @@ ggsave("nsp_histogram.png",plot=nsp_histogram)
 ggsave("nsp_log_histogram.png",plot=nsp_log_histogram)
 
 load("Coefficients_of_regression.RData")
+png(filename = "regression_plot.png")

@@ -17,7 +17,7 @@ fMod <- glmer(
 )
 
 ## Parameter-level P values (this is all we need for nb.sex.partner, because in this model it only has one parameter
-summary(fModAge)
+summary(fMod)
 
 ## We use sub-models to get variable-level P values
 fModNoAge <- update(fMod, . ~ . - ns(Age, 4))
