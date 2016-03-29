@@ -2,7 +2,7 @@
 ### Hooks for the editor to set the default target
 current: target
 
-target pngtarget pdftarget vtarget acrtarget: number_sex_partners_regression.Rout 
+target pngtarget pdftarget vtarget acrtarget: Coefficients_of_regression.Rout 
 
 ##################################################################
 
@@ -43,6 +43,9 @@ Risk_factor_analyses.Rout: Risk_factor_analyses.R
 number_sex_partners_regression.Rout: number_sex_partners_regression.R
 
 sptest.Rout: ~/Dropbox/Woodstock_thesis/Risk_factor_analyses.RData sptest.R
+
+number_sex_partners_regression.Rout: merge_HIV.Rout
+Coefficients_of_regression.Rout: number_sex_partners_regression.Rout
 
 ######################################################################
 
