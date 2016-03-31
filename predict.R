@@ -1,4 +1,7 @@
-### Load stuff or whatever
+setwd("~/Dropbox/Woodstock_thesis")
+
+library(lme4)
+load("number_sex_partners_regression.RData")
 
 fAge <- with(fAnswers, data.frame(
 	Age=Age
