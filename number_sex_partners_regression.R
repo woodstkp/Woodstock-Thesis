@@ -3,6 +3,7 @@ setwd("~/Dropbox/Woodstock_thesis")
 library(lme4)
 library(splines)
 load("merge_HIV.RData")
+load("Country_recode.RData")
 
 mAnswers <- subset(Answers, gender=="Male")
 fAnswers <- subset(Answers, gender=="Female")
