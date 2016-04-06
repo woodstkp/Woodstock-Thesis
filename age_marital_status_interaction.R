@@ -4,6 +4,7 @@ setwd("~/Dropbox/Woodstock_thesis")
 
 library(lme4)
 library(sjPlot)
+library(splines)
 load("merge_HIV.RData")
 load("number_sex_partners_regression.RData")
 
@@ -24,5 +25,16 @@ fMod_interaction <- update(fMod, . ~ . + ns(Age,4)*marital_status)
 ## Plotting the model
 sjp.glmer(fMod_interaction, 
           type = "fe", 
+          sort = TRUE)
+
+sjp.int(fMod_interaction, 
+          type = "fe", 
+          )
+
+sjt.glmer(fMod)
+
+sjp.glmer(fMod, 
+          type = "re",
+          showIntercept=FALSE,
           sort = TRUE)
 
