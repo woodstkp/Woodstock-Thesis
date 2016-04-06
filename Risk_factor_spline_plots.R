@@ -36,6 +36,7 @@ print(HIV_and_age_of_sexual_debut)
 
 HIV_and_number_sex_partners <- (hivXnsp 
   +scale_x_log10(breaks = c(1,2,5,10,20,50,100))
+  + xlab("Number of Sexual Partners")
 	+ geom_smooth(method="glm",method.args=list("binomial"),formula=y~infs(x,4),na.rm=FALSE)			
 	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Number of Sexual Partners") 
 )
