@@ -23,7 +23,12 @@ aes(x=Age, y=as.numeric(hiv_pos), colour=marital_status)
 ## HIV risk by gender
 HIV_risk_by_gender <- (gender_plot + scale_colour_brewer(palette="Set1")
 	+ geom_smooth(method="glm",method.args=list("binomial"), formula=y~ns(x, 4),na.rm=FALSE) 
-	+ylab("Proportion HIV+") +ggtitle("HIV Probability by Gender")
+	+ylab("Proportion HIV+") +ggtitle("HIV Risk by Gender and Age")
+  +theme(axis.text=element_text(size=16),
+	  axis.title=element_text(size=16),
+    legend.title=element_text(size=20),
+    legend.text=element_text(size=18)
+    )
 )
 print(HIV_risk_by_gender)
 
