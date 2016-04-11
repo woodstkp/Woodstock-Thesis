@@ -19,6 +19,12 @@ summary(fAge)
 
 aPredict <- predict(fMod, newdata=fAge, type="response")
 
+## Creating Confidence Intervals
+
+predictFun <- function(x)
+  predict(x,newdata=fAge,re.form=~(1|Country.code.and.phase/Cluster.number),type="response")
+predBoot <- bootMer(fMod, predictFun, use.u=FALSE)
+
 ## Creating age prediction plot
 Age_df <- data.frame(fAge$Age,aPredict)
 names(Age_df) <- c("Age","Prediction")
