@@ -22,7 +22,7 @@ aPredict <- predict(fMod, newdata=fAge, type="response")
 ## Creating Confidence Intervals
 confint(fMod,aPredict)
 
-FUN <- function(fMod){
+FUN <- function(x){
   aPredict <- predict(fMod, newdata=fAge, type="response")
 }
 predBoot <- bootMer(fMod, FUN, use.u=FALSE)
