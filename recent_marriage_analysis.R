@@ -22,7 +22,7 @@ print(
         method="glm",method.args=list("binomial"), formula=y~ns(x, 4),na.rm=FALSE)
   
   + ylab("Proportion HIV+")
-  + ggtitle("HIV Prevalence in Never Versus Recently Married Individuals")
+  + ggtitle("HIV Prevalence in Never Married and Recently Married Individuals")
   + scale_color_manual("Marital Status", values = c("red","blue") )
 )
 
