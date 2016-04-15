@@ -22,7 +22,12 @@ print(
         method="glm",method.args=list("binomial"), formula=y~ns(x, 4),na.rm=FALSE)
   
   + ylab("Proportion HIV+")
-  + ggtitle("HIV Prevalence in Never Married and Recently Married Individuals")
+  + ggtitle("HIV Prevalence in Never Married and Recently Married Women")
   + scale_color_manual("Marital Status", values = c("red","blue") )
 )
 
+print(
+  ggplot(recentmarr, aes (x=Age))
+    +geom_histogram(binwidth=1)
+    +ggtitle("Age Distribution of Recently Married Women")  
+)
