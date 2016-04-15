@@ -20,13 +20,13 @@ summary(fAge)
 aPredict <- predict(fMod, newdata=fAge, type="response")
 
 ## Creating Confidence Intervals
-confint(fMod,aPredict)
+#confint(fMod,aPredict)
 
-FUN <- function(x){
-  aPredict <- predict(fMod, newdata=fAge, type="response")
-}
-predBoot <- bootMer(fMod, FUN, use.u=FALSE)
-summary(predBoot)
+#FUN <- function(x){
+ # aPredict <- predict(fMod, newdata=fAge, type="response")
+#}
+#predBoot <- bootMer(fMod, FUN, use.u=FALSE)
+#summary(predBoot)
 
 
 ## Creating age prediction plot
@@ -38,8 +38,7 @@ age_prediction <- ggplot(data = Age_df,
 )
 
 print(age_prediction
-  + geom_smooth(color="black",se= TRUE)
-  + geom_point(color="red",size=3)
-  + ggtitle("Age as a Predictor of HIV risk")
+  + geom_smooth(color="red",se= TRUE)
+  + ggtitle("Age as a Predictor of HIV Risk")
   + ylab("Probability HIV+")
 )

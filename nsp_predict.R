@@ -28,8 +28,7 @@ nsp_prediction <- ggplot(data = nsp_df,
 )
 
 print(nsp_prediction
-  + geom_smooth(color="black",se= TRUE)
-  + geom_point(color="red",size=3)
+  + geom_smooth(color="red",se= TRUE)
   + scale_x_log10(breaks = c(1,2,5,10,20,50,100))
 # + scale_y_log10(breaks = c(0.03,0.05,0.1,0.15,0.2))
   + ggtitle("Number of Sexual Partners as a Predictor of HIV risk")

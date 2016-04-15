@@ -26,3 +26,18 @@ plot(x = f_ms$marital_status,mPredict
      , main = "Marital Status as a Predictor of HIV Risk"
 )
 
+
+ms_df <- data.frame(f_ms$marital_status,mPredict)
+names(ms_df) <- c("Marital_Status","Prediction")
+
+
+ms_prediction <- ggplot(data = ms_df,
+                         aes(x=Marital_Status, y=Prediction)
+)
+
+print(ms_prediction
+      + geom_point(color="red",size=4)
+      + ggtitle("Marital Status as a Predictor of HIV Risk")
+      + ylab("Probability HIV+")
+      + xlab("Marital Status")
+)
