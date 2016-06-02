@@ -32,4 +32,5 @@ print(nsp_prediction
   + geom_point(color="red",size=3)
   + ggtitle("Number of Sexual Partners as a Predictor of HIV risk")
   + ylab("Probability HIV+")
+  + xlab("Number of Sexual Partners (Log Scale)")
 )
