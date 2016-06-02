@@ -1,8 +1,12 @@
 setwd("~/Dropbox/Woodstock_thesis")
 
 library(lme4)
+library(ggplot2)
+  theme_set(theme_bw())
+library(splines)
 load("number_sex_partners_regression.RData")
 
+## Age Prediction
 fAge <- with(fAnswers, data.frame(
 	Age=Age
 	, nb.sex.partner=mean(nb.sex.partner) 
@@ -15,6 +19,17 @@ summary(fAge)
 
 aPredict <- predict(fMod, newdata=fAge, type="response")
 
-summary(aPredict)
+## Creating age prediction plot
+Age_df <- data.frame(fAge$Age,aPredict)
+names(Age_df) <- c("Age","Prediction")
 
-plot(fAge$Age, aPredict)
+age_prediction <- ggplot(data = Age_df,
+  aes(x=Age, y=Prediction)
+)
+
+print(age_prediction
+  + geom_smooth(color="black",se= TRUE)
+  + geom_point(color="red",size=3)
+  + ggtitle("Age as a Predictor of HIV risk")
+  + ylab("Probability HIV+")
+)
